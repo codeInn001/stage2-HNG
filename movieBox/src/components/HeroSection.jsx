@@ -4,6 +4,7 @@ import menu from '../assets/Menu.svg'
 import tomato from '../assets/tomato.png'
 import imdb from '../assets/imdb.png'
 import play from '../assets/Play.svg'
+import FeaturedMovie from './FeaturedMovie'
 
 
 
@@ -11,12 +12,12 @@ export default function HeroSection() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (
-        <div className="bg-white text-white">
-            <header className="absolute inset-x-0 top-0 bg-hero-pattern bg-no-repeat pb-40  lg:px-8  px-12 py-6">
+        <div className="bg-white text-white w-full">
+            <header className="w-full bg-auto top-0 bg-hero-pattern bg-no-repeat pb-40  lg:px-8  px-12 py-6">
                 <nav className="flex items-center justify-between " aria-label="Global">
                     <div className='flex items-center gap-6'>
                         <img src={logo} alt='logo' />
-                        <h1>MovieBox</h1>
+                        <h1 className='font-semibold text-2xl'>MovieBox</h1>
                     </div>
                     <div className='w-1/2'>
                         <input 
@@ -29,7 +30,7 @@ export default function HeroSection() {
                         />
                     </div>
                     <div className="flex items-center gap-6 ">
-                        <p>sign in</p>
+                        <p className='font-semibold'>Sign in</p>
                         <img src={menu} alt="menu" className='bg-primary rounded-full h-9 w-9 p-1'/>
                     </div>
                 </nav>
@@ -61,6 +62,7 @@ export default function HeroSection() {
                     </div>
                 </div>
             </header>
+            
         </div>
     )
 }

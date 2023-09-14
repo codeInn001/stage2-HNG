@@ -16,22 +16,25 @@ export default {
       ...theme('colors'),
       DEFAULT: theme('colors.gray.300', 'currentColor'),
       'primary': '#D1D5DB',
-      'secondary': '#ffed4a',
-      'danger': '#e3342f',
+      
     }),
 
     backgroundColor: theme => ({
       ...theme('colors'),
       DEFAULT: theme('colors.gray.300', 'currentColor'),
       'primary': '#BE123C',
-      'secondary': '#ffed4a',
+      'favorite': 'rgba(243, 244, 246, 0.50)',
       'danger': '#e3342f',
     }),
+
     textColor: theme => theme('colors'),
     textColor: {
       'primary': '#BE123C',
-      'secondary': '#ffed4a',
-      'danger': '#e3342f',
+      'series-font': '#111827',
+      'poster-grey': '#9CA3AF',
+      'white': '#FFF',
+      'rating': '#111827',
+      'copyright': '#6B7280',
     },
   },
   plugins: [],
