@@ -10,6 +10,7 @@ import FeaturedMovie from './FeaturedMovie'
 
 export default function HeroSection() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const number = [1,2,3,4,5]
 
     return (
         <div className="bg-white text-white w-full">
@@ -19,7 +20,7 @@ export default function HeroSection() {
                         <img src={logo} alt='logo' />
                         <h1 className='font-semibold text-2xl'>MovieBox</h1>
                     </div>
-                    <div className='w-1/2'>
+                    <div className='w-1/2 flex justify-center'>
                         <input 
                             className='bg-transparent text-white placeholder-white::placeholder border-solid border-2 
                                         border-primary rounded-md w-4/5 p-2' 
@@ -34,31 +35,41 @@ export default function HeroSection() {
                         <img src={menu} alt="menu" className='bg-primary rounded-full h-9 w-9 p-1'/>
                     </div>
                 </nav>
-                <div className='w-1/4 p-2 flex flex-col gap-4'>
-                    <div className='text-left pt-20 text-5xl break-words'>
-                        <h1 className="leading-tight">John Wick 3 : Parabellum</h1>
-                    </div>
-                    <div className="flex items-center gap-6">
-                        <div className="flex items-center gap-2">
-                            <img src={imdb} alt='' />
-                            <p>86.8/100</p>
+                <div className='flex justify-between items-center'>
+                    <div className='w-1/4 p-2 flex flex-col gap-4'>
+                        <div className='text-left pt-16 text-5xl break-words'>
+                            <h1 className="leading-tight">John Wick 3 : Parabellum</h1>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <img src={tomato} alt='' />
-                            <p>97%</p>
+                        <div className="flex items-center gap-6">
+                            <div className="flex items-center gap-2">
+                                <img src={imdb} alt='' />
+                                <p>86.8/100</p>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <img src={tomato} alt='' />
+                                <p>97%</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p className='text-left leading-normal'>
+                                John Wick is on the run after killing a member of the
+                                international assassins' guild, and with
+                                a $14 million price tag on his head, he
+                                is the target of hit men and women everywhere.
+                            </p>
+                        </div>
+                        <div className='flex items-center gap-2 bg-primary w-1/2 p-2 rounded-md'>
+                            <img src={play} alt='play' />
+                            <p>WATCH TRAILER</p>
                         </div>
                     </div>
-                    <div>
-                        <p className='text-left leading-normal'>
-                            John Wick is on the run after killing a member of the 
-                            international assassins' guild, and with
-                            a $14 million price tag on his head, he 
-                            is the target of hit men and women everywhere.
-                        </p>
-                    </div>
-                    <div className='flex items-center gap-2 bg-primary w-1/2 p-2 rounded-md'>
-                        <img src={play} alt='play' />
-                        <p>WATCH TRAILER</p>
+
+                    <div className='flex flex-col'>
+                        {
+                            number.map((num,index) =>(
+                                <button>{num}</button>
+                            ))
+                        }
                     </div>
                 </div>
             </header>

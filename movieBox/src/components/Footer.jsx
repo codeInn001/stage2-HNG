@@ -19,7 +19,7 @@ function Footer() {
                 <p className='text-lg'>Press Room</p>
             </div>
             <div className="flex justify-center items-center gap-x-12 font-semibold text-copyright">
-                <p className='text-lg'> &copy; and &#169; 2021 MovieBox by Adriana Eka Prayudha</p>
+                <p className='text-lg'> &copy; 2021 MovieBox by Adriana Eka Prayudha</p>
             </div>
         </div>
     )

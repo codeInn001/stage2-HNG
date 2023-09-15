@@ -9,11 +9,15 @@ import logout from '../assets/Logout.png'
 import video from '../assets/video.jpg'
 import play from '../assets/Play.png'
 import star from '../assets/Star.png'
+import ticket from '../assets/Tickets.png'
+import list from '../assets/List.png'
+import listWhite from '../assets/ListWhite.png'
+import rectangleMovie from '../assets/RectangleMovie.png'
 
 function MovieDetails() {
   return (
-    <div className='grid grid-rows-3 grid-cols-12 lg:px-16  px-16 py-6'>
-      <div className='row-span-6 col-span-2 border border-detail-menu border-solid py-12 px-5' style={{ borderRadius: '0 2.5rem 2.5rem 0' }}>
+    <div className='grid grid-cols-12 lg:px-16  px-16 py-6'>
+      <div className='row-span-2 col-span-2 border border-detail-menu border-solid pt-12 px-5' style={{ borderRadius: '0 2.5rem 2.5rem 0' }}>
         <div className='flex items-center gap-6'>
           <img src={logo} alt='logo' />
           <h1 className='font-semibold text-2xl'>MovieBox</h1>
@@ -59,10 +63,10 @@ function MovieDetails() {
             left: '47%',
           }} />
         </div>
-          
+
 
         <div className="flex justify-between pt-6">
-          <div className='flex font-semibold justify-between' style={{ color: '#404040'}}>
+          <div className='flex font-semibold justify-between' style={{ color: '#404040' }}>
             <div>
               <span >Top Gun: Maverick</span>
               <span > • </span>
@@ -73,21 +77,51 @@ function MovieDetails() {
               <span > 2h 10m </span>
             </div>
 
-            <div className='flex justify-between text-xs text-genre font-semibold justify-self-start' style={{ width: '12%' }}>
+            <div className='flex justify-between gap-x-4 text-xs text-genre font-semibold justify-self-start' style={{ width: '12%' }}>
               <span className='border-genre border border-solid py-px px-3 rounded-xl'>Action</span>
               <span className='border-genre border border-solid py-px px-3 rounded-xl'>Drama</span>
             </div>
           </div>
-          
-          
-          <div className='flex border-2'>
+
+
+          <div className='flex '>
             <img className='self-center h-5 w-5 pr-1' src={star} alt="rating" srcset="" />
-            <span className='font-semibold' style={{ color: '#E8E8E8'}}> 8.5 </span>
+            <span className='font-semibold' style={{ color: '#E8E8E8' }}> 8.5 </span>
             <span className='font-semibold' style={{ color: ' #666666' }} >| 350k</span>
           </div>
         </div>
       </div>
-      <div className='col-start-3'>rrrrr</div>
+      <div className='flex justify-between col-start-3 col-span-full pl-6 pt-8'>
+        <div className='w-2/3'>
+          <p className='leading-snug mb-8'>
+            After thirty years, Maverick is still pushing the envelope as a top naval aviator,
+            <br />but must confront ghosts of his past when he leads TOP GUN's elite graduates
+            <br />on a mission that demands the ultimate sacrifice from those chosen to fly it.
+          </p>
+          <div>
+            <div className='mb-4'>Director :<span className='text-primary'> Joseph Kosinski</span></div>
+            <div className='mb-4'>Writers :<span className='text-primary'> Jim Cash, Jack Epps Jr, Peter Craig</span></div>
+            <div className='mb-4'>Stars :<span className='text-primary'> Tom Cruise, Jennifer Connelly, Miles Teller</span></div>
+          </div>
+          <div className='flex rounded-md w-4/5 border gap-x-3 border-solid border-red'>
+            <div className='rounded-md bg-primary text-white px-3'>Top rated movie #65</div>
+            <select className=''>
+              <option value="">Awards 9 nominations</option>
+            </select>
+          </div>
+        </div>
+        <div className=''>
+          <div className='w-full'>
+            <button className='w-full flex bg-primary text-white text-sm rounded-md justify-center gap-x-2 items-center mb-4 px-8 py-1'> <img src={ticket} alt="ticket" srcset="" /><span>See Showtimes</span></button>
+            <button className='w-full flex bg-play text-sm rounded-md justify-center  gap-x-2 items-center px-8 py-1 mb-8'> <img src={list} alt="list" srcset="" /><span>See Showtimes</span></button>
+          </div>
+
+          <div className='relative'>
+            <img src={rectangleMovie} alt="see more movies" />
+            <button className='flex absolute bottom-0 justify-center gap-x-2 py-2 px-4 w-full items-center rounded-lg text-sm' style={{ background: 'rgba(18, 18, 18, 0.50)', color: 'white' }}> <img src={listWhite} alt="list" srcset="" /><span className='text-white'>The Best Movies and Shows in September</span></button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
