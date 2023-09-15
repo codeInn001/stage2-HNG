@@ -5,6 +5,7 @@ import './App.css'
 import HeroSection from './components/HeroSection'
 import FeaturedMovie from './components/FeaturedMovie'
 import Footer from './components/Footer'
+import MovieDetails from './components/MovieDetails'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <HeroSection />
       <FeaturedMovie />
       <Footer />
+      <MovieDetails />
     </div>
   )
 }
