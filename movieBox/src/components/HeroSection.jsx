@@ -73,6 +73,7 @@ export default function HeroSection() {
                     </div>
                 </div>
             </header>
+            <FeaturedMovie />
             
         </div>
     )

@@ -6,6 +6,7 @@ import HeroSection from './components/HeroSection'
 import FeaturedMovie from './components/FeaturedMovie'
 import Footer from './components/Footer'
 import MovieDetails from './components/MovieDetails'
+import { Routes, Route } from 'react-router-dom';
 
 
 function App() {
@@ -13,10 +14,18 @@ function App() {
 
   return (
     <div>
-      <HeroSection />
+      {/* <HeroSection />
       <FeaturedMovie />
       <Footer />
-      <MovieDetails />
+      <MovieDetails /> */}
+
+      <Routes>
+        <Route path="/" element={<HeroSection />} />
+        <Route path="/" element={<FeaturedMovie/>} />
+        {/* <Route path="/about" element={<About />} /> */}
+        {/* <Route path="*" element={<NoMatch />} /> */}
+        <Route path="/:id" element={<MovieDetails />} />
+      </Routes>
     </div>
   )
 }
