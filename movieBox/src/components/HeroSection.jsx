@@ -10,29 +10,32 @@ import FeaturedMovie from './FeaturedMovie'
 
 export default function HeroSection() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    const number = [1,2,3,4,5]
+    const number = [1, 2, 3, 4, 5]
 
     return (
         <div className="bg-white text-white w-full">
             <header className="w-full bg-auto top-0 bg-hero-pattern bg-no-repeat pb-40  lg:px-8  px-12 py-6">
                 <nav className="flex items-center justify-between " aria-label="Global">
+
                     <div className='flex items-center gap-6'>
                         <img src={logo} alt='logo' />
                         <h1 className='font-semibold text-2xl'>MovieBox</h1>
                     </div>
+
+
                     <div className='w-1/2 flex justify-center'>
-                        <input 
+                        <input
                             className='bg-transparent text-white placeholder-white::placeholder border-solid border-2 
-                                        border-primary rounded-md w-4/5 p-2' 
-                            type="search" 
-                            name="" 
-                            id="" 
-                            placeholder='What do you want to watch?' 
+                                        border-primary rounded-md w-4/5 p-2'
+                            type="search"
+                            name=""
+                            id=""
+                            placeholder='What do you want to watch?'
                         />
                     </div>
                     <div className="flex items-center gap-6 ">
                         <p className='font-semibold'>Sign in</p>
-                        <img src={menu} alt="menu" className='bg-primary rounded-full h-9 w-9 p-1'/>
+                        <img src={menu} alt="menu" className='bg-primary rounded-full h-9 w-9 p-1' />
                     </div>
                 </nav>
                 <div className='flex justify-between items-center'>
@@ -66,7 +69,7 @@ export default function HeroSection() {
 
                     <div className='flex flex-col'>
                         {
-                            number.map((num,index) =>(
+                            number.map((num, index) => (
                                 <button>{num}</button>
                             ))
                         }
@@ -74,7 +77,7 @@ export default function HeroSection() {
                 </div>
             </header>
             <FeaturedMovie />
-            
+
         </div>
     )
 }

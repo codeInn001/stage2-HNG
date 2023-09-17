@@ -14,15 +14,18 @@ import list from '../assets/List.png'
 import listWhite from '../assets/ListWhite.png'
 import rectangleMovie from '../assets/RectangleMovie.png'
 import { useParams } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function MovieDetails() {
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  // const [utcdate, setutcdate] = useState(null)
   const { id } = useParams()
 
   const MOVIE_DETAIL = `https://api.themoviedb.org/3/movie/${id}`;
   const VIDEO_DETAIL = `https://api.themoviedb.org/3/movie/${id}/videos`;
-  console.log(id)
+  const imageAPI = "https://image.tmdb.org/t/p/w500"
+  console.log(VIDEO_DETAIL)
 
   const options = {
     method: 'GET',
@@ -32,20 +35,19 @@ function MovieDetails() {
     }
   };
 
-  function convertToUTC(date) {
-    const inputDate = new Date(date);
-
-    // Convert the date to UTC
-    const utcDate = new Date(
-      inputDate.getUTCFullYear(),
-      inputDate.getUTCMonth(),
-      inputDate.getUTCDate(),
-      inputDate.getUTCHours(),
-      inputDate.getUTCMinutes(),
-      inputDate.getUTCSeconds()
-    );
-    return utcDate.toISOString()
+  function convertToUTC(utcdate) {
+    console.log(utcdate.split('-'))
+    let arr
+    if(!isLoading) {
+     arr = date.split('-')
+      console.log(arr)
+    }
+    console.log(arr)
+    const utcDate1 = new Date(Date.UTC(96, 1, 2, 3, 4, 5))   
+    
   }
+
+  
 
   
 
@@ -57,7 +59,7 @@ function MovieDetails() {
         )
       .then(response => {
         setMovies(response)
-        console.log(response)
+        console.log(response.release_date)
         return response
       })
       .catch(err => console.error(err));
@@ -65,17 +67,19 @@ function MovieDetails() {
 
   // const filteredMovie = movies.filter(movie => movie.id == id)
 
-  console.log(movies)
+  console.log(movies.genres)
 
   return (
     <>
-      {isLoading ? <p>loading</p> :
+      {isLoading ? <p className='text-[rgb(0,0,0) text-center'>loading</p> :
         <div className='grid grid-cols-12 lg:px-16  px-16 py-6'>
           <div className='row-span-2 col-span-2 border border-detail-menu border-solid pt-12 px-5' style={{ borderRadius: '0 2.5rem 2.5rem 0' }}>
-            <div className='flex items-center gap-6'>
-              <img src={logo} alt='logo' />
-              <h1 className='font-semibold text-2xl'>MovieBox</h1>
-            </div>
+            <Link to='/'>
+              <div className='flex items-center gap-6'>
+                <img src={logo} alt='logo' />
+                <h1 className='font-semibold text-2xl'>MovieBox</h1>
+              </div>
+            </Link>
             <div className='flex flex-col justify-between items-center gap-y-14 mt-24 mb-20'>
               <div className='flex'>
                 <img src={home} alt='home' className='' />
@@ -112,7 +116,7 @@ function MovieDetails() {
           <div className='w-full col-start-3 col-span-full pl-6 pt-8'>
 
             <div className='w-full relative'>
-              <img className='w-full rounded-xl' src={video} alt="video" srcset="" />
+              <img className='w-full h-[30rem] bg-cover rounded-xl' src={imageAPI + movies.poster_path} alt="video" srcset="" />
               <img className='video-play-position bg-video-play rounded-full p-3' src={play} alt="video" srcset="" style={{
                 position: 'absolute',
                 top: '40%',
@@ -126,33 +130,32 @@ function MovieDetails() {
                 <div>
                   <span data-testid='movie-title' >{movies.title}</span>
                   <span > • </span>
-                  <span data-testid='movie-release-date'> {new Date(Date.UTC(1994, 8, 23)) } </span>
+                  <span data-testid='movie-release-date'> {new Date(movies.release_date).toUTCString()} </span>
                   <span > • </span>
                   <span > PG-13 </span>
                   <span > • </span>
-                  <span data-testid='movie-runtime'> 2h 10m </span>
+                  <span data-testid='movie-runtime'> {movies.runtime} minutes</span>
                 </div>
 
                 <div className='flex justify-between gap-x-4 text-xs text-genre font-semibold justify-self-start' style={{ width: '12%' }}>
                   <span className='border-genre border border-solid py-px px-3 rounded-xl'>Action</span>
-                  <span className='border-genre border border-solid py-px px-3 rounded-xl'>Drama</span>
+                  <span className='border-genre border border-solid py-px px-3 rounded-xl'>Action</span>
+                  
                 </div>
               </div>
 
 
               <div className='flex '>
                 <img className='self-center h-5 w-5 pr-1' src={star} alt="rating" srcset="" />
-                <span className='font-semibold' style={{ color: '#E8E8E8' }}> </span>
-                <span className='font-semibold' style={{ color: ' #666666' }} >| 350k</span>
+                <span className='font-semibold' style={{ color: '#E8E8E8' }}>{movies.vote_average} </span>
+                <span className='font-semibold' style={{ color: ' #666666' }} >| {movies.popularity}k</span>
               </div>
             </div>
           </div>
           <div className='flex justify-between col-start-3 col-span-full pl-6 pt-8'>
             <div className='w-2/3'>
               <p data-testid='movie-overview' className='leading-snug mb-8'>
-                After thirty years, Maverick is still pushing the envelope as a top naval aviator,
-                <br />but must confront ghosts of his past when he leads TOP GUN's elite graduates
-                <br />on a mission that demands the ultimate sacrifice from those chosen to fly it.
+                {movies.overview}
               </p>
               <div>
                 <div className='mb-4'>Director :<span className='text-primary'> Joseph Kosinski</span></div>
